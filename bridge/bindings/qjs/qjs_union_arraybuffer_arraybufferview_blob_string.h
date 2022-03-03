@@ -15,26 +15,21 @@ namespace kraken {
 
 class QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString {
  public:
-  enum class ContentType {
-    kArrayBuffer, kArrayBufferView, kBlob, kString
-  };
+  enum class ContentType { kArrayBuffer, kArrayBufferView, kBlob, kString };
 
-  static QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString* Create(
-    JSContext* ctx,
-    JSValue value,
-    ExceptionState& exception_state);
+  static QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString* Create(JSContext* ctx, JSValue value, ExceptionState& exception_state);
 
-  explicit QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString(JSContext* ctx, uint8_t* arrayBuffer, uint32_t length): content_type_(ContentType::kArrayBuffer) {};
-  explicit QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString(JSContext* ctx, const std::string& value): content_type_(ContentType::kString) {};
-  explicit QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString(JSContext* ctx, Blob* blob): content_type_(ContentType::kBlob) {};
+  explicit QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString(JSContext* ctx, uint8_t* arrayBuffer, uint32_t length) : content_type_(ContentType::kArrayBuffer){};
+  explicit QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString(JSContext* ctx, const std::string& value) : content_type_(ContentType::kString){};
+  explicit QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString(JSContext* ctx, Blob* blob) : content_type_(ContentType::kBlob){};
 
-private:
+ private:
   ContentType content_type_;
   std::string member_string_;
   uint32_t* bytes;
 };
 
-}
+}  // namespace kraken
 
 class qjs_union_arraybuffer_arraybufferview_blob_string {};
 

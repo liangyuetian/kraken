@@ -12,20 +12,7 @@ namespace kraken {
 
 class DOMArrayBufferView {
  public:
-  enum ViewType {
-    kTypeInt8,
-    kTypeUint8,
-    kTypeUint8Clamped,
-    kTypeInt16,
-    kTypeUint16,
-    kTypeInt32,
-    kTypeUint32,
-    kTypeFloat32,
-    kTypeFloat64,
-    kTypeBigInt64,
-    kTypeBigUint64,
-    kTypeDataView
-  };
+  enum ViewType { kTypeInt8, kTypeUint8, kTypeUint8Clamped, kTypeInt16, kTypeUint16, kTypeInt32, kTypeUint32, kTypeFloat32, kTypeFloat64, kTypeBigInt64, kTypeBigUint64, kTypeDataView };
 
  private:
   uint8_t* buffer_;
@@ -33,6 +20,6 @@ class DOMArrayBufferView {
   ViewType view_type_;
 };
 
-}
+}  // namespace kraken
 
 #endif  // KRAKENBRIDGE_DOM_ARRAY_BUFFER_VIEW_H

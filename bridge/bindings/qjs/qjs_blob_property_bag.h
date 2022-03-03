@@ -21,6 +21,6 @@ class BlobPropertyBag final {
   std::string m_type;
 };
 
-}
+}  // namespace kraken
 
 #endif  // KRAKENBRIDGE_QJS_BLOB_PROPERTY_BAG_H

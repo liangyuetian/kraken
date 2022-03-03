@@ -6,8 +6,8 @@
 #ifndef KRAKENBRIDGE_BINDINGS_QJS_BOM_FRAME_REQUEST_CALLBACK_COLLECTION_H_
 #define KRAKENBRIDGE_BINDINGS_QJS_BOM_FRAME_REQUEST_CALLBACK_COLLECTION_H_
 
-#include "core/executing_context.h"
 #include "bindings/qjs/script_wrappable.h"
+#include "core/executing_context.h"
 
 namespace kraken {
 
@@ -15,6 +15,7 @@ namespace kraken {
 // invoked when a script-based animation needs to be resampled.
 class FrameCallback : public ScriptWrappable {
   DEFINE_WRAPPERTYPEINFO();
+
  public:
   FrameCallback(JSContext* ctx, JSValue callback);
 

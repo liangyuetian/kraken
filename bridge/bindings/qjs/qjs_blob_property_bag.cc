@@ -11,13 +11,10 @@ BlobPropertyBag* BlobPropertyBag::create(ExecutingContext* context, JSValue valu
   BlobPropertyBag* dictionary = new BlobPropertyBag();
 
   if (JS_IsUndefined(value)) {
-
   }
   return nullptr;
 }
 
-void BlobPropertyBag::fillMemberFromQuickjsObject(ExecutingContext* context, JSValue value, ExceptionState* exceptionState) {
+void BlobPropertyBag::fillMemberFromQuickjsObject(ExecutingContext* context, JSValue value, ExceptionState* exceptionState) {}
 
-}
-
-}
+}  // namespace kraken

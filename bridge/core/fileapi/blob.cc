@@ -3,8 +3,8 @@
  * Author: Kraken Team.
  */
 
-#include "bindings/qjs/qjs_blob.h"
 #include "blob.h"
+#include "bindings/qjs/qjs_blob.h"
 
 namespace kraken {
 
@@ -18,19 +18,19 @@ Blob* Blob::create(JSContext* ctx, std::vector<uint8_t>&& data, std::string& mim
   return makeGarbageCollected<Blob>(ctx, std::forward<std::vector<uint8_t>>(data), mime);
 }
 //
-//void BlobBuilder::append(ExecutingContext& context, Blob* blob) {
+// void BlobBuilder::append(ExecutingContext& context, Blob* blob) {
 //  std::vector<uint8_t> blobData = blob->_data;
 //  _data.reserve(_data.size() + blobData.size());
 //  _data.insert(_data.end(), blobData.begin(), blobData.end());
 //}
 //
-//void BlobBuilder::append(ExecutingContext& context, const std::string& value) {
+// void BlobBuilder::append(ExecutingContext& context, const std::string& value) {
 //  std::vector<uint8_t> strArr(value.begin(), value.end());
 //  _data.reserve(_data.size() + strArr.size());
 //  _data.insert(_data.end(), strArr.begin(), strArr.end());
 //}
 //
-//void BlobBuilder::append(ExecutingContext& context, ScriptValue value) {
+// void BlobBuilder::append(ExecutingContext& context, ScriptValue value) {
 //  if (value.isString()) {
 //
 //  } else if (value.isArray()) {
@@ -67,7 +67,7 @@ Blob* Blob::create(JSContext* ctx, std::vector<uint8_t>&& data, std::string& mim
 //  }
 //}
 //
-//std::vector<uint8_t> BlobBuilder::finalize() {
+// std::vector<uint8_t> BlobBuilder::finalize() {
 //  return std::move(_data);
 //}
 

@@ -7,11 +7,11 @@
 #define KRAKENBRIDGE_BINDINGS_QJS_CONVERTER_TS_TYPE_H_
 
 #include <vector>
-#include "foundation/native_string.h"
-#include "converter.h"
-#include "script_value.h"
 #include "atom_string.h"
+#include "converter.h"
+#include "foundation/native_string.h"
 #include "qjs_union_arraybuffer_arraybufferview_blob_string.h"
+#include "script_value.h"
 
 namespace kraken {
 
@@ -19,7 +19,7 @@ struct TSTypeBase {
   using ImplType = void;
 };
 
-template<typename T>
+template <typename T>
 struct TSTypeBaseHelper {
   using ImplType = T;
 };
@@ -27,7 +27,7 @@ struct TSTypeBaseHelper {
 // Any
 struct TSAny final : public TSTypeBaseHelper<ScriptValue> {};
 
-template<typename T>
+template <typename T>
 struct TSOptional final : public TSTypeBase {
   using ImplType = typename Converter<T>::ImplType;
 };
@@ -52,11 +52,11 @@ struct TSUSVString final : public TSTypeBaseHelper<std::string> {};
 struct TSObject : public TSTypeBaseHelper<ScriptValue> {};
 
 // Sequence
-template<typename T>
+template <typename T>
 struct TSSequence final : public TSTypeBase {
   using ImplType = typename std::vector<T>;
 };
 
-}
+}  // namespace kraken
 
 #endif  // KRAKENBRIDGE_BINDINGS_QJS_CONVERTER_TS_TYPE_H_

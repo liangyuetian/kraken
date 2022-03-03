@@ -17,9 +17,9 @@
 #include <mutex>
 #include <unordered_map>
 #include "bindings/qjs/binding_initializer.h"
-#include "bindings/qjs/script_wrappable.h"
 #include "bindings/qjs/rejected_promises.h"
 #include "bindings/qjs/script_value.h"
+#include "bindings/qjs/script_wrappable.h"
 #include "foundation/macros.h"
 #include "foundation/ui_command_buffer.h"
 
@@ -63,6 +63,7 @@ bool isContextValid(int32_t contextId);
 
 class ExecutionContextGCTracker : public ScriptWrappable {
   DEFINE_WRAPPERTYPEINFO();
+
  public:
   explicit ExecutionContextGCTracker(JSContext* ctx);
 

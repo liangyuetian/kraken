@@ -15,7 +15,7 @@ namespace kraken {
 class QJSFunction : public GarbageCollected<QJSFunction> {
  public:
   static QJSFunction* Create(JSContext* ctx, JSValue function) { return makeGarbageCollected<QJSFunction>(ctx, function); }
-  explicit QJSFunction(JSContext* ctx, JSValue function) : function_(JS_DupValue(ctx, function)) {};
+  explicit QJSFunction(JSContext* ctx, JSValue function) : function_(JS_DupValue(ctx, function)){};
 
   bool IsFunction(JSContext* ctx);
 

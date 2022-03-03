@@ -11,4 +11,4 @@ QJSUnionArrayBufferOrArrayBufferViewOrBlobOrString* QJSUnionArrayBufferOrArrayBu
   return nullptr;
 }
 
-}
+}  // namespace kraken

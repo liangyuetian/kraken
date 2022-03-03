@@ -22,7 +22,7 @@ std::unique_ptr<ExecutingContext> createJSContext(int32_t contextId, const JSExc
 
 static JSRuntime* m_runtime{nullptr};
 
-ExecutionContextGCTracker::ExecutionContextGCTracker(JSContext* ctx): ScriptWrappable(ctx) {}
+ExecutionContextGCTracker::ExecutionContextGCTracker(JSContext* ctx) : ScriptWrappable(ctx) {}
 
 void ExecutionContextGCTracker::Trace(GCVisitor* visitor) const {
   auto* context = static_cast<ExecutingContext*>(JS_GetContextOpaque(ctx()));
