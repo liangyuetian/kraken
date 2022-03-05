@@ -3,6 +3,7 @@
  * Author: Kraken Team.
  */
 import 'dart:ui';
+import 'dart:convert';
 
 import 'package:kraken/dom.dart';
 import 'package:kraken/launcher.dart';
@@ -25,6 +26,18 @@ class Window extends EventTarget {
     String? sourceUrl = rootController.href;
 
     document.controller.view.handleNavigationAction(sourceUrl, url, KrakenNavigationType.navigate);
+  }
+
+  String btoa(String str) {
+    List<int> bytes = utf8.encode(str);
+    String encodedStr = base64Encode(bytes);
+    return encodedStr;
+  }
+
+  String atob(String encodedStr) {
+    List<int> bytes = base64Decode(encodedStr);
+    String decodeStr = String.fromCharCodes(bytes);
+    return decodeStr;
   }
 
   double scrollX() {
@@ -81,6 +94,10 @@ class Window extends EventTarget {
         return scrollY();
       case 'open':
         return _open(argv[0]);
+      case 'btoa':
+        return btoa(argv[0]);
+      case 'atob':
+        return atob(argv[0]);
       default:
         super.handleJSCall(method, argv);
     }

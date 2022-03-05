@@ -65,6 +65,25 @@ JSValue Window::scrollBy(JSContext* ctx, JSValue this_val, int argc, JSValue* ar
   return window->callNativeMethods("scrollBy", 2, arguments);
 }
 
+JSValue Window::btoa(JSContext* ctx, JSValue this_val, int argc, JSValue* argv) {
+  getDartMethod()->flushUICommand();
+  auto window = static_cast<WindowInstance*>(JS_GetOpaque(this_val, Window::classId()));
+  NativeValue arguments[] = {jsValueToNativeValue(ctx, argv[0])};
+  JSValue base64 = window->callNativeMethods("btoa", 1, arguments);
+  return base64;
+
+//  JSValue constructor = static_cast<Window*>(window->prototype())->getElementConstructor(document->m_context, tagName);
+//
+//  JSValue element = JS_CallConstructor(ctx, constructor, argc, argv);
+//  return element;
+}
+JSValue Window::atob(JSContext* ctx, JSValue this_val, int argc, JSValue* argv) {
+  getDartMethod()->flushUICommand();
+  auto window = static_cast<WindowInstance*>(JS_GetOpaque(this_val, Window::classId()));
+  NativeValue arguments[] = {jsValueToNativeValue(ctx, argv[0])};
+  return window->callNativeMethods("atob", 1, arguments);
+}
+
 JSValue Window::postMessage(JSContext* ctx, JSValue this_val, int argc, JSValue* argv) {
   JSValue messageValue = argv[0];
   JSValue globalObjectValue = JS_GetGlobalObject(ctx);

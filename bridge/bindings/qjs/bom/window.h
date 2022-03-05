@@ -25,6 +25,8 @@ class Window : public EventTarget {
   static JSValue open(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv);
   static JSValue scrollTo(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv);
   static JSValue scrollBy(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv);
+  static JSValue btoa(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv);
+  static JSValue atob(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv);
   static JSValue postMessage(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv);
   static JSValue requestAnimationFrame(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv);
   static JSValue cancelAnimationFrame(JSContext* ctx, JSValueConst this_val, int argc, JSValueConst* argv);
@@ -52,6 +54,8 @@ class Window : public EventTarget {
   ObjectFunction m_scroll{m_context, m_prototypeObject, "scroll", scrollTo, 2};
   DEFINE_PROTOTYPE_FUNCTION(scrollTo, 2);
   DEFINE_PROTOTYPE_FUNCTION(scrollBy, 2);
+  DEFINE_PROTOTYPE_FUNCTION(btoa, 1);
+  DEFINE_PROTOTYPE_FUNCTION(atob, 1);
   DEFINE_PROTOTYPE_FUNCTION(postMessage, 3);
   DEFINE_PROTOTYPE_FUNCTION(requestAnimationFrame, 1);
   DEFINE_PROTOTYPE_FUNCTION(cancelAnimationFrame, 1);
